@@ -38,5 +38,5 @@ function getRandomMessage() {
 // Use setInterval to call the function at regular intervals to update the sign's message
 setInterval(() => {
     const randomMessage = getRandomMessage();
-    updateSign(randomMessage, 2); // Assuming a default distance of 2 meters
+    updateSign(randomMessage, 6.1); // Assuming a default distance of 6.1 meters
 }, 10000); // Update the message every 10 seconds
