@@ -1,4 +1,4 @@
-# Three.js WebXR App
+# A-Frame WebXR App
 
 This project is a simple XR app for seeing a sign in front of the user in mixed reality. The user can configure what is on the sign and how far away it is in real life units (feet or meters).
 

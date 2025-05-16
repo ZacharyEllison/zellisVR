@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three.js WebXR App</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@webxr-input-profiles/motion-controllers@1.0.0/dist/motion-controllers.module.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@webxr-polyfill@1.0.0/dist/webxr-polyfill.min.js"></script>
-    <script src="app.js" defer></script>
+    <title>A-Frame WebXR App</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <style>
         body {
             background-color: #2E3440; /* Nord background color */
@@ -15,7 +12,8 @@
     </style>
 </head>
 <body>
-    <canvas id="xr-canvas"></canvas>
-    <button onclick="startXRSession()">Enter XR</button>
+    <a-scene>
+        <a-entity geometry="primitive: plane; height: 0.5; width: 1" material="color: white" position="0 1.6 -2"></a-entity>
+    </a-scene>
 </body>
 </html>
