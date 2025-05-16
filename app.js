@@ -30,6 +30,11 @@ function init() {
     sign.position.set(0, 1.6, -2);
     scene.add(sign);
 
+    // Set the background color to nord
+    scene.background = new THREE.Color(0x2E3440);
+}
+
+function startXRSession() {
     // Implement basic WebXR support
     document.body.appendChild(THREE.WebXRManager.createButton(renderer));
 }
