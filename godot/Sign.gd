@@ -2,7 +2,7 @@ extends MeshInstance3D
 
 func _ready():
     # Set the sign's position 6.1 meters in front of the camera
-    global_transform.origin = Vector3(0, 1.5, -6.1)
+    global_transform.origin = Vector3(0, 1.6, -6.1)
     
     # Create a gentle earth tone material
     var material = StandardMaterial3D.new()
