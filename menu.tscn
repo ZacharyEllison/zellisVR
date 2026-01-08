@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvkvtb25je5tc"]
+
+[ext_resource type="Texture2D" uid="uid://cyg33jxco0rh6" path="res://addons/godot-xr-tools/editor/icons/body.svg" id="1_mae5d"]
+[ext_resource type="Texture2D" uid="uid://b6gwa6o27pbry" path="res://addons/godot-xr-tools/editor/icons/node.svg" id="2_4hy44"]
+[ext_resource type="Texture2D" uid="uid://bfkcd3fkyahqu" path="res://addons/godot-xr-tools/editor/icons/foot.svg" id="3_ytr4m"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 395.0
+offset_bottom = 499.0
+color = Color(0.08235294, 0.58431375, 1, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 18.0
+offset_top = 179.0
+offset_right = 378.0
+offset_bottom = 283.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "TEST"
+icon = ExtResource("1_mae5d")
+icon_alignment = 2
+expand_icon = true
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "TEST"
+icon = ExtResource("2_4hy44")
+icon_alignment = 2
+expand_icon = true
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "TEST"
+icon = ExtResource("3_ytr4m")
+icon_alignment = 2
+expand_icon = true

@@ -1,3 +1,50 @@
-[gd_scene format=3 uid="uid://cqow47bch5ocs"]
+[gd_scene load_steps=6 format=3 uid="uid://cqow47bch5ocs"]
+
+[ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://ces1j6plojyra" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="2_0xm2m"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
+sky_top_color = Color(0.05401583, 0.49911052, 0.60374504, 1)
+sky_horizon_color = Color(0.5140247, 0.65964127, 0.68450856, 1)
+ground_bottom_color = Color(0.062193476, 0.19956508, 0.19440004, 1)
+ground_horizon_color = Color(0.5140247, 0.65964127, 0.68450856, 1)
+
+[sub_resource type="Sky" id="Sky_h2yge"]
+sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+background_mode = 2
+sky = SubResource("Sky_h2yge")
+tonemap_mode = 2
 
 [node name="main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.9289567, 0.9273243, 7.70092e-07, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1bvp3")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5083511, 0)
+h_offset = 1.5
+
+[node name="VRCommonShaderCache" parent="XROrigin3D/XRCamera3D" instance=ExtResource("1_ig7tw")]
+
+[node name="left" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43057454, 0.73160994, -0.65864146)
+tracker = &"left_hand"
+
+[node name="right" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7330322, 0.9081751, -0.7114197)
+tracker = &"right_hand"
+
+[node name="OpenXRRenderModelManager" type="OpenXRRenderModelManager" parent="XROrigin3D"]
+
+[node name="XRToolsStartXR" type="Node" parent="."]
+script = ExtResource("2_0xm2m")
+metadata/_custom_type_script = "uid://ces1j6plojyra"
