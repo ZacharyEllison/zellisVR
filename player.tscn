@@ -1,0 +1,87 @@
+[gd_scene load_steps=14 format=3 uid="uid://ckudr8chj1kgo"]
+
+[ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="1_n7ghd"]
+[ext_resource type="PackedScene" uid="uid://cjcehqrfoxav3" path="res://addons/hand_pose_detector/hands/LeftHandHumanoid.gltf" id="2_nvl01"]
+[ext_resource type="Script" uid="uid://b30bhx2lwjwd7" path="res://addons/hand_pose_detector/hand_pose_controller.gd" id="3_ivps1"]
+[ext_resource type="Script" uid="uid://bc5vvis6ya4at" path="res://addons/hand_pose_detector/hand_pose_action.gd" id="4_urp6f"]
+[ext_resource type="Resource" uid="uid://dhbqusuodrl3r" path="res://addons/hand_pose_detector/poses/fist.tres" id="5_bwjto"]
+[ext_resource type="Script" uid="uid://cl3m6sxnrmnlc" path="res://addons/hand_pose_detector/hand_pose_action_map.gd" id="6_606se"]
+[ext_resource type="PackedScene" uid="uid://dabmoo0spa6vg" path="res://addons/hand_pose_detector/hands/RightHandHumanoid.gltf" id="8_op7ga"]
+[ext_resource type="Script" uid="uid://jcvrenlngjfs" path="res://addons/hand_pose_detector/hand_pose.gd" id="9_q13i1"]
+[ext_resource type="Script" uid="uid://7m7835cp4i3r" path="res://addons/hand_pose_detector/hand_pose_set.gd" id="10_pylmc"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="11_nvl01"]
+
+[sub_resource type="Resource" id="Resource_dg77c"]
+resource_local_to_scene = true
+script = ExtResource("4_urp6f")
+pose = ExtResource("5_bwjto")
+action_type = 1
+action_name = "grip"
+metadata/_custom_type_script = "uid://bc5vvis6ya4at"
+
+[sub_resource type="Resource" id="Resource_ycdy4"]
+resource_local_to_scene = true
+script = ExtResource("6_606se")
+actions = Array[ExtResource("4_urp6f")]([SubResource("Resource_dg77c")])
+metadata/_custom_type_script = "uid://cl3m6sxnrmnlc"
+
+[sub_resource type="Resource" id="Resource_n7ghd"]
+script = ExtResource("10_pylmc")
+poses = Array[ExtResource("9_q13i1")]([ExtResource("5_bwjto")])
+metadata/_custom_type_script = "uid://7m7835cp4i3r"
+
+[node name="XROrigin3D" type="XROrigin3D"]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5083511, 0)
+h_offset = 1.5
+
+[node name="VRCommonShaderCache" parent="XRCamera3D" instance=ExtResource("1_n7ghd")]
+
+[node name="left" type="XRNode3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5331328, 0.5718998, -0.31139565)
+tracker = &"/user/hand_tracker/left"
+
+[node name="LeftHandHumanoid2" parent="left" instance=ExtResource("2_nvl01")]
+
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="left/LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D" index="1"]
+
+[node name="HandPoseController" type="Node" parent="left"]
+script = ExtResource("3_ivps1")
+controller_action_map = SubResource("Resource_ycdy4")
+hand_pose_set = SubResource("Resource_n7ghd")
+metadata/_custom_type_script = "uid://b30bhx2lwjwd7"
+
+[node name="right" type="XRNode3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6748265, 0.7212746, -1.3381867)
+tracker = &"/user/hand_tracker/right"
+
+[node name="RightHandHumanoid2" parent="right" instance=ExtResource("8_op7ga")]
+
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="right/RightHandHumanoid2/RightHandHumanoid/Skeleton3D" index="1"]
+hand_tracker = &"/user/hand_tracker/right"
+
+[node name="HandPoseController" type="Node" parent="right"]
+script = ExtResource("3_ivps1")
+controller_tracker_name = "/user/hand_pose_controller/right"
+controller_action_map = SubResource("Resource_ycdy4")
+hand_tracker_name = "/user/hand_tracker/right"
+hand_pose_set = SubResource("Resource_n7ghd")
+metadata/_custom_type_script = "uid://b30bhx2lwjwd7"
+
+[node name="leftVirtualController" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.54217696, 0.5172355, -0.57264376)
+tracker = &"/user/hand_pose_controller/left"
+
+[node name="FunctionPickup" parent="leftVirtualController" instance=ExtResource("11_nvl01")]
+grab_distance = 0.01
+
+[node name="rightVirtualController" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53267705, 0.5893258, -1.726761)
+tracker = &"/user/hand_pose_controller/right"
+
+[node name="FunctionPickup" parent="rightVirtualController" instance=ExtResource("11_nvl01")]
+grab_distance = 0.01
+
+[editable path="left/LeftHandHumanoid2"]
+[editable path="right/RightHandHumanoid2"]
