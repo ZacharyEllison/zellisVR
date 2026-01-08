@@ -13,8 +13,10 @@ ground_horizon_color = Color(0.5140247, 0.65964127, 0.68450856, 1)
 sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
 
 [sub_resource type="Environment" id="Environment_1bvp3"]
-background_mode = 2
+background_mode = 1
+background_color = Color(0, 0, 0, 0)
 sky = SubResource("Sky_h2yge")
+ambient_light_source = 2
 tonemap_mode = 2
 
 [node name="main" type="Node3D"]
@@ -42,8 +44,6 @@ tracker = &"left_hand"
 [node name="right" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7330322, 0.9081751, -0.7114197)
 tracker = &"right_hand"
-
-[node name="OpenXRRenderModelManager" type="OpenXRRenderModelManager" parent="XROrigin3D"]
 
 [node name="XRToolsStartXR" type="Node" parent="."]
 script = ExtResource("2_0xm2m")
