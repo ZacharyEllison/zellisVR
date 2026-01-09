@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6so7gavnx3gf"]
+[gd_scene load_steps=5 format=3 uid="uid://c6so7gavnx3gf"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_sskp5"]
 
@@ -6,7 +6,13 @@
 resource_local_to_scene = true
 size = Vector3(0.1, 0.1, 0.1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_im0tn"]
+resource_local_to_scene = true
+
 [sub_resource type="BoxMesh" id="BoxMesh_kpoof"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(5, 7)
+material = SubResource("StandardMaterial3D_im0tn")
 size = Vector3(0.1, 0.1, 0.1)
 
 [node name="block" instance=ExtResource("1_sskp5")]
