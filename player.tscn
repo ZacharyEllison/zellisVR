@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ckudr8chj1kgo"]
+[gd_scene format=3 uid="uid://ckudr8chj1kgo"]
 
 [ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="1_n7ghd"]
 [ext_resource type="PackedScene" uid="uid://cjcehqrfoxav3" path="res://addons/hand_pose_detector/hands/LeftHandHumanoid.gltf" id="2_nvl01"]
@@ -30,38 +30,38 @@ script = ExtResource("10_pylmc")
 poses = Array[ExtResource("9_q13i1")]([ExtResource("5_bwjto")])
 metadata/_custom_type_script = "uid://7m7835cp4i3r"
 
-[node name="XROrigin3D" type="XROrigin3D"]
+[node name="XROrigin3D" type="XROrigin3D" unique_id=681954291]
 
-[node name="XRCamera3D" type="XRCamera3D" parent="."]
+[node name="XRCamera3D" type="XRCamera3D" parent="." unique_id=774186858]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5083511, 0)
 h_offset = 1.5
 
-[node name="VRCommonShaderCache" parent="XRCamera3D" instance=ExtResource("1_n7ghd")]
+[node name="VRCommonShaderCache" parent="XRCamera3D" unique_id=1712896089 instance=ExtResource("1_n7ghd")]
 
-[node name="left" type="XRNode3D" parent="."]
+[node name="left" type="XRNode3D" parent="." unique_id=709404891]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5331328, 0.5718998, -0.31139565)
 tracker = &"/user/hand_tracker/left"
 
-[node name="LeftHandHumanoid2" parent="left" instance=ExtResource("2_nvl01")]
+[node name="LeftHandHumanoid2" parent="left" unique_id=456022425 instance=ExtResource("2_nvl01")]
 
-[node name="XRHandModifier3D" type="XRHandModifier3D" parent="left/LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D" index="1"]
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="left/LeftHandHumanoid2/LeftHandHumanoid/Skeleton3D" parent_id_path=PackedInt32Array(456022425, 917672113) index="1" unique_id=1633824454]
 
-[node name="HandPoseController" type="Node" parent="left"]
+[node name="HandPoseController" type="Node" parent="left" unique_id=536475573]
 script = ExtResource("3_ivps1")
 controller_action_map = SubResource("Resource_ycdy4")
 hand_pose_set = SubResource("Resource_n7ghd")
 metadata/_custom_type_script = "uid://b30bhx2lwjwd7"
 
-[node name="right" type="XRNode3D" parent="."]
+[node name="right" type="XRNode3D" parent="." unique_id=2049907172]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6748265, 0.7212746, -1.3381867)
 tracker = &"/user/hand_tracker/right"
 
-[node name="RightHandHumanoid2" parent="right" instance=ExtResource("8_op7ga")]
+[node name="RightHandHumanoid2" parent="right" unique_id=1581112550 instance=ExtResource("8_op7ga")]
 
-[node name="XRHandModifier3D" type="XRHandModifier3D" parent="right/RightHandHumanoid2/RightHandHumanoid/Skeleton3D" index="1"]
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="right/RightHandHumanoid2/RightHandHumanoid/Skeleton3D" parent_id_path=PackedInt32Array(1581112550, 1657755613) index="1" unique_id=807238598]
 hand_tracker = &"/user/hand_tracker/right"
 
-[node name="HandPoseController" type="Node" parent="right"]
+[node name="HandPoseController" type="Node" parent="right" unique_id=1206593463]
 script = ExtResource("3_ivps1")
 controller_tracker_name = "/user/hand_pose_controller/right"
 controller_action_map = SubResource("Resource_ycdy4")
@@ -69,19 +69,21 @@ hand_tracker_name = "/user/hand_tracker/right"
 hand_pose_set = SubResource("Resource_n7ghd")
 metadata/_custom_type_script = "uid://b30bhx2lwjwd7"
 
-[node name="leftVirtualController" type="XRController3D" parent="."]
+[node name="leftVirtualController" type="XRController3D" parent="." unique_id=2072572734]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.54217696, 0.5172355, -0.57264376)
 tracker = &"/user/hand_pose_controller/left"
 
-[node name="FunctionPickup" parent="leftVirtualController" instance=ExtResource("11_nvl01")]
+[node name="FunctionPickup" parent="leftVirtualController" unique_id=475459633 instance=ExtResource("11_nvl01")]
 grab_distance = 0.01
 
-[node name="rightVirtualController" type="XRController3D" parent="."]
+[node name="rightVirtualController" type="XRController3D" parent="." unique_id=2042253038]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53267705, 0.5893258, -1.726761)
 tracker = &"/user/hand_pose_controller/right"
 
-[node name="FunctionPickup" parent="rightVirtualController" instance=ExtResource("11_nvl01")]
+[node name="FunctionPickup" parent="rightVirtualController" unique_id=745088906 instance=ExtResource("11_nvl01")]
 grab_distance = 0.01
+
+[node name="OpenXRRenderModelManager" type="OpenXRRenderModelManager" parent="." unique_id=2132867774]
 
 [editable path="left/LeftHandHumanoid2"]
 [editable path="right/RightHandHumanoid2"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqow47bch5ocs"]
+[gd_scene format=3 uid="uid://cqow47bch5ocs"]
 
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c6so7gavnx3gf" path="res://block.tscn" id="3_1bvp3"]
@@ -18,33 +18,33 @@ background_mode = 2
 sky = SubResource("Sky_1bvp3")
 tonemap_mode = 2
 
-[node name="main" type="Node3D"]
+[node name="main" type="Node3D" unique_id=949896984]
 
-[node name="omni" type="OmniLight3D" parent="."]
+[node name="omni" type="OmniLight3D" parent="." unique_id=1395744240]
 transform = Transform3D(-0.8660254, -0.50000006, -2.1855696e-08, 0, -4.371139e-08, 1, -0.50000006, 0.8660254, 3.7855173e-08, -0.82999766, 2.654605, -0.1115489)
 light_color = Color(0.954207, 0.93479556, 0.85318524, 1)
 omni_range = 20.0
 omni_attenuation = 0.0
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1803771359]
 environment = SubResource("Environment_lquwl")
 
-[node name="XROrigin3D" parent="." instance=ExtResource("1_h2yge")]
+[node name="XROrigin3D" parent="." unique_id=1610538906 instance=ExtResource("1_h2yge")]
 
-[node name="blocks" type="Node3D" parent="."]
+[node name="blocks" type="Node3D" parent="." unique_id=1099479229]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9294807, -0.7902671)
 
-[node name="block" parent="blocks" instance=ExtResource("3_1bvp3")]
+[node name="block" parent="blocks" unique_id=1708835586 instance=ExtResource("3_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1885395, 0, 0.52164346)
 
-[node name="block2" parent="blocks" instance=ExtResource("3_1bvp3")]
+[node name="block2" parent="blocks" unique_id=1939188981 instance=ExtResource("3_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2891178, 0, 0.22734046)
 
-[node name="block3" parent="blocks" instance=ExtResource("3_1bvp3")]
+[node name="block3" parent="blocks" unique_id=645875803 instance=ExtResource("3_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31695533, 0, 0.28615844)
 
-[node name="block4" parent="blocks" instance=ExtResource("3_1bvp3")]
+[node name="block4" parent="blocks" unique_id=158859572 instance=ExtResource("3_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.22734046)
 
-[node name="StartXR" parent="." instance=ExtResource("3_h2yge")]
+[node name="StartXR" parent="." unique_id=2032317631 instance=ExtResource("3_h2yge")]
 enable_passthrough = true
