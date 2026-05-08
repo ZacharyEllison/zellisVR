@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="HandPose" format=3 uid="uid://forgiving_fist_uid"]
+
+[ext_resource type="Script" uid="uid://fitness_func_uid" path="res://addons/hand_pose_detector/fitness_function.gd" id="1_ff"]
+[ext_resource type="Script" uid="uid://hand_pose_uid" path="res://addons/hand_pose_detector/hand_pose.gd" id="2_hp"]
+
+## Wide angle ranges for more forgiving fist detection
+[sub_resource type="Resource" id="FlexThumb"]
+script = ExtResource("1_ff")
+type = 1
+from = 0.0
+to = 90.0
+
+[sub_resource type="Resource" id="FlexIndex"]
+script = ExtResource("1_ff")
+type = 1
+from = 0.0
+to = 90.0
+
+[sub_resource type="Resource" id="FlexMiddle"]
+script = ExtResource("1_ff")
+type = 1
+from = 0.0
+to = 90.0
+
+[sub_resource type="Resource" id="FlexRing"]
+script = ExtResource("1_ff")
+type = 1
+from = 0.0
+to = 90.0
+
+[sub_resource type="Resource" id="FlexPinky"]
+script = ExtResource("1_ff")
+type = 1
+from = 0.0
+to = 90.0
+
+[sub_resource type="Resource" id="CurlIndex"]
+script = ExtResource("1_ff")
+type = 1
+from = 0.0
+to = 180.0
+
+[sub_resource type="Resource" id="CurlMiddle"]
+script = ExtResource("1_ff")
+type = 1
+from = 0.0
+to = 180.0
+
+[sub_resource type="Resource" id="CurlRing"]
+script = ExtResource("1_ff")
+type = 1
+from = 0.0
+to = 180.0
+
+[sub_resource type="Resource" id="CurlPinky"]
+script = ExtResource("1_ff")
+type = 1
+from = 0.0
+to = 180.0
+
+[resource]
+script = ExtResource("2_hp")
+pose_name = "ForgivingFist"
+threshold = 0.2
+flexion_thumb = SubResource("FlexThumb")
+flexion_index = SubResource("FlexIndex")
+flexion_middle = SubResource("FlexMiddle")
+flexion_ring = SubResource("FlexRing")
+flexion_pinky = SubResource("FlexPinky")
+curl_index = SubResource("CurlIndex")
+curl_middle = SubResource("CurlMiddle")
+curl_ring = SubResource("CurlRing")
+curl_pinky = SubResource("CurlPinky")
