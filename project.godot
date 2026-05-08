@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="New Game Project"
+config/name="zellisVR"
 run/main_scene="uid://cqow47bch5ocs"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -23,10 +23,11 @@ config/icon="res://icon.svg"
 
 XRToolsUserSettings="*uid://bqgb8i74tm0t"
 XRToolsRumbleManager="*uid://by853dk86g1qw"
+DebugAPI="*uid://be0o3fll85ds2"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
+enabled=PackedStringArray("res://addons/debug_api/plugin.cfg", "res://addons/godot-xr-tools/plugin.cfg", "res://addons/godot_mcp/plugin.cfg")
 
 [layer_names]
 
