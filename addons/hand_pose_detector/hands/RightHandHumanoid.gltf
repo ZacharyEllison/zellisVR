@@ -559,10 +559,13 @@
 		{
 			"doubleSided":true,
 			"name":"Hand",
+			"alphaMode":"BLEND",
+			"alphaCutoff":0,
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":0
 				},
+				"baseColorFactor":[1,1,1,0.3],
 				"metallicFactor":0,
 				"roughnessFactor":0.5
 			}

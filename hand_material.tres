@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+resource_name = "HandTransparent"
+flags_unshaded = true
+flags_transparent = true
+albedo_color = Color(1, 1, 1, 0.3)
+metallic = 0
+roughness = 0.5
+normal_map = ""
+tex_coords_transform = Vector3(1, 1, 0)
