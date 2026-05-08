@@ -46,7 +46,7 @@ func _configure_meshes(node: Node):
 
 func _configure_mesh_instance(mesh: MeshInstance3D):
 	# Disable shadows
-	mesh.cast_shadow = Geometry3D.SHADOW_CASTING_SETTING_OFF
+	mesh.cast_shadow = 0  ## OFF
 	
 	# Configure material
 	if mesh.material_override:
