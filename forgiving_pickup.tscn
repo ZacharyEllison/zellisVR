@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://forgiving_pickup_scene"]
+
+[ext_resource type="Script" uid="uid://ubtacmydrf2ai" path="res://forgiving_pickup.gd" id="1_fp"]
+
+[node name="FunctionPickup" type="Node3D"]
+script = ExtResource("1_fp")
+grab_distance = 0.15
+_grip_threshold = 0.5
+pickup_axis_action = "grip"
+action_button_action = "trigger_click"
+enabled = true
+ranged_enable = true
+ranged_distance = 5.0
+ranged_angle = 5.0
+ranged_collision_mask = 4
+grab_collision_mask = 327684
+impulse_factor = 1.0
+hand_offset_mode = 0
